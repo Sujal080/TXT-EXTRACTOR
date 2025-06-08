@@ -201,3 +201,14 @@ async def rgvikram_txt(app, message, api, name):
     prog = await message.reply_text("**Extracting Videos Links Please Wait  📥 **") 
     thread = threading.Thread(target=lambda: asyncio.run(rgvikram_down(app, message, hdr1, api, raw_text2, fuk, batch_name, name, prog)))
     thread.start()
+
+# ✅ Added RG Vikramjeet Button Handler
+from pyrogram import Client, filters
+from pyrogram.types import Message
+
+@Client.on_message(filters.regex("RG Vikramjeet"))
+async def rg_button_handler(_, message: Message):
+    await message.reply_text(
+        "Send Id*Password or Token or Phone Number",
+        reply_to_message_id=message.id
+    )
